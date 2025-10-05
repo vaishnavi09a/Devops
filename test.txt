@@ -1,50 +1,15 @@
 Hello!!
-Act as a technology Environment Specialist to support activities like software deployments, configurations, and releases from DEV to PROD - AND - environment management, support, and triage in DEV to PAT (while consulting with existing L2 and L3 teams for PROD).
-Role and Responsibilities (Accountabilities): All scope applicable to AMCB ARE team profile within ITS
-Perform automated and manual deployments within TD Ecosystems (OpenStack, VMC, Azure) as applicable from DEV to PROD
-Perform technical triage, support, and remediation skills as part of a larger environment management function from DEV to PAT
-Contribute/Create system documentation and process documentation to ensure a robust capability exists within the team that is easily transferable and trainable for additional team members
-Support off-hours/overnight events if/as needed
-Provide excellence in communication between technology, infrastructure, and client teams as part of your role
-Job Requirements (Technical Skills): Auto Scaling
-IAAS (Infrastructure As A Service)
 
-
-Must have Configuration & Integration level skills in the following tools:
-Jira
-GIT/Bitbucket
-Jenkins
-Artifactory
-Ansible Tower
-
-
-Good-to-Have
-
-DevOps tools (Jenkins, bitbucket, Git/GitHub, nexus working knowledge)
-•Experience with Automated Delivery (CI/CD, delivery pipelines, automation, scripting)
-•Eclipse (or similar), Ant/Maven deployment experience
-•Experience leveraging Release Management Methodology
-•Working Experience with SDLC & System Integration
-•Networking/F5 Working knowledge
-•Exceptional troubleshooting skills
-Must Have Skills: Auto Scaling
-IAAS (Infrastructure As A Service)
-Salt Stack
-Terraform
-Spring Boot
-Scripting-Unix Shell, PowerShell, Python
-Node JS
-Nice To Have Skills:
-• Monitoring tools - Dynatrace, Sensu, Datadog, Nagios, Grafana.
-Team Player
-• Flexible
-• Able to juggle multiple initiatives and responsibilities
-• Ability to create Knowledge base and documentation
-• Innovative and creative thinker
-• Problem solver
-Groovy
-Shell
-Python
-Power shell
+For cracking any interview prepare for what technologies are exactly written in Resume like below:
+1. Linux, shell scripting
+2. Python
+3. Groovy
+4. Github
+6. Jenkins
+7. Nexus, Sonarqube
+8. Openshift, Docker, kubernetes
+9. AWS
+10. Monitoring tool like Grafana
+11. Any scripting language
 
 
