@@ -1,4 +1,4 @@
-# HOW TO ANSWER CICD PROCESS IN AN INTERVIEW| DEVOPS INTERVIEW QUESTIONS
+# HOW TO ANSWER CICD PROCESS IN AN INTERVIEW| DEVOPS INTERVIEW QUESTIONS PART 1
 
 We use GitHub as Version Control System and out target platform is Openshift
 
@@ -29,3 +29,7 @@ Then we use same jenkins pipeline and update this image in the k8 yaml manifest 
 **A Helm chart** is a collection of files that define and manage Kubernetes applications. Charts are packages that contain all the resources needed to deploy an application to a Kubernetes cluster. 
 
 7.Once the updated k8 image manifest pushed to gitHub repo then what we do as part of same pipeline using helm command we just push this new commit in git repo to k8 platform.
+
+# HOW TO ANSWER CICD PROCESS IN AN INTERVIEW | DEVOPS INTERVIEW QUESTIONS PART 2
+
+For microservices, we have streamlined the CI/CD Process. We use GitHub Actions for CI and ArgoCD for CD. Let me explain our completed dev sec pipeline. 1st stage is static code analysis, we verify if any unused variables, functions, vulnerable modules is being introduced. Once everything is good, our next stage is Unit testing. In unit testing stage we verify all unit test codes are passing even for newly added code. we head to third stage which is build stage, Now in build stage application is complied and target artifact is created, enhancimg existing CI/CD Pipeline
