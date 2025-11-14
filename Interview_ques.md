@@ -7,8 +7,7 @@ These focus on fundamentals, scripting, tooling, concepts, your experience.
 Answer:
 In a DevOps or infrastructure context, automation refers to using scripts, tools, or systems to perform tasks that would otherwise be done manually — especially repetitive, error-prone, time-consuming tasks. It includes automating provisioning of resources (servers, containers, networks), deployments of applications, configuration management, monitoring, scaling, and rollback. The goal is consistency, speed, repeatability and reducing human error.
 
-**2. How do you approach writing an automation script (from requirement → design → test → maintain)?
-
+**2. How do you approach writing an automation script (from requirement → design → test → maintain)?**
 Answer:
 A good approach is:
 
