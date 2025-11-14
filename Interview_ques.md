@@ -7,7 +7,7 @@ These focus on fundamentals, scripting, tooling, concepts, your experience.
 Answer:
 In a DevOps or infrastructure context, automation refers to using scripts, tools, or systems to perform tasks that would otherwise be done manually — especially repetitive, error-prone, time-consuming tasks. It includes automating provisioning of resources (servers, containers, networks), deployments of applications, configuration management, monitoring, scaling, and rollback. The goal is consistency, speed, repeatability and reducing human error.
 
-#2. How do you approach writing an automation script (from requirement → design → test → maintain)?
+**2. How do you approach writing an automation script (from requirement → design → test → maintain)?
 
 Answer:
 A good approach is:
@@ -24,14 +24,14 @@ Deployment/Integration: Integrate into pipeline or scheduler; ensure proper perm
 
 Maintenance: Document the script, version control it, ensure peer-review, handle future enhancements. Monitor its performance, adjust based on logs/errors.
 
-3. Which scripting languages have you used (e.g., Bash, Python, PowerShell)? Explain a sample script you wrote.
+**3. Which scripting languages have you used (e.g., Bash, Python, PowerShell)? Explain a sample script you wrote.
 
 Answer:
 (Your answer would detail your experience; here’s a generic example.)
 I have used Bash for Unix/Linux automation and Python for more complex automation (logic, API calls).
 Sample script example: I wrote a Bash script that nightly checks all web servers in a pool for disk usage > 80 %, logs the output, sends an email if any server exceeds threshold, and triggers a cleanup job. It used ssh to remote check, df -h, logs in a central location, and used mailx for alerts. Then I refactored into Python for better error handling and JSON parsing of server list.
 
-4. What are the pros & cons of using Bash vs Python for automation?
+**4. What are the pros & cons of using Bash vs Python for automation?
 
 Answer:
 
@@ -41,7 +41,7 @@ Python	Rich libraries (HTTP, JSON, SSH, API client libraries), better structurin
 
 Choice depends on the complexity: for “run this command nightly” Bash is fine; for “call APIs, parse results, make decisions, integrate logs”, Python is preferable.
 
-5. Explain version control (e.g., Git) and why it’s important for infrastructure code.
+**5. Explain version control (e.g., Git) and why it’s important for infrastructure code.
 
 Answer:
 Version control is a system (like Git) that tracks changes to code or files over time; it allows you to commit changes, view history, revert to previous versions, branch for features/experiments, merge changes with review. For infrastructure code (scripts, IaC templates, automation workflows) it is important because:
@@ -56,7 +56,7 @@ You can review changes (code review) before they are applied (important for auto
 
 It promotes repeatability: the same code deployed in dev/test/prod; drift is minimised.
 
-6. What branching strategies in Git have you used (feature branch, trunk-based, GitFlow)?
+**6. What branching strategies in Git have you used (feature branch, trunk-based, GitFlow)?
 
 Answer:
 I have used:
@@ -68,16 +68,12 @@ GitFlow: primarily master/main, develop, feature/*, release/*, hotfix/*. Useful 
 Trunk-based development: developers commit frequently (often daily) to main (or trunk), with short-lived feature toggles or branches. I used this when the organisation emphasised rapid CI/CD and frequent production releases.
 I prefer trunk-based for DevOps automation because it aligns with continuous delivery: simpler merges, fewer long-lived branches.
 
-7. Explain the term “Infrastructure as Code (IaC)”.
+**7. Explain the term “Infrastructure as Code (IaC)”.
 
 Answer:
 Infrastructure as Code (IaC) is the practice of defining and managing infrastructure (servers, networks, databases, load-balancers, etc.) using machine-readable definition files (code) rather than manual configuration. This means you write templates or scripts that describe the desired state of your infrastructure, commit them into version control, and deploy them via automated tools. IaC ensures: reproducibility of environments, consistency between dev/test/prod, traceability, automation of provisioning and changes, and reduction of human error. 
-datacamp.com
-+2
-GeeksforGeeks
-+2
 
-8. Which tools have you used for IaC (e.g., Terraform, Ansible, CloudFormation)?
+**8. Which tools have you used for IaC (e.g., Terraform, Ansible, CloudFormation)?
 
 Answer:
 (Your answer would reflect your experience; here’s a sample.)
@@ -90,7 +86,7 @@ CloudFormation (AWS): to manage AWS stacks internally for certain teams.
 Ansible: partly as configuration management, partly for infrastructure bootstrapping (installing packages, configuring services).
 I find Terraform strong for declarative provisioning across clouds; Ansible is great for configuration after VMs/instances are live.
 
-9. What are the benefits of using IaC compared to manual configuration?
+**9. What are the benefits of using IaC compared to manual configuration?
 
 Answer:
 Key benefits include:
@@ -111,14 +107,12 @@ Disaster recovery: You have code to rebuild environments quickly.
 
 Better collaboration: Development/operations teams work on the same definitions.
 
-10. What is a CI/CD pipeline?
+**10. What is a CI/CD pipeline?
 
 Answer:
 CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. A CI/CD pipeline is an automated workflow that takes code from commit (integration) through build, test, and deployment steps to deliver software. Typically: a developer commits code → version control triggers build → automated tests run → if successful artifact is created → deployment is triggered (to dev/staging/prod) → monitoring/feedback. The pipeline ensures frequent, reliable releases and rapid feedback loops. 
-roadmap.sh
-+1
 
-11. Which tools have you used for CI/CD (e.g., Jenkins, GitLab CI, CircleCI)?
+**11. Which tools have you used for CI/CD (e.g., Jenkins, GitLab CI, CircleCI)?
 
 Answer:
 (Your answer would reflect your experience.)
@@ -133,7 +127,7 @@ CircleCI: for certain selected microservices where we wanted quick cloud-based p
 Azure DevOps Pipelines: when working in Azure-based environment.
 I prefer Jenkins when we have complex needs/integrations, GitLab CI for tighter version control + pipeline integration.
 
-12. How would you structure a basic CI pipeline from commit to test to deployment?
+**12. How would you structure a basic CI pipeline from commit to test to deployment?
 
 Answer:
 A basic pipeline may look like:
@@ -161,7 +155,7 @@ Notification: Notify relevant teams of success/failure.
 Rollback/Remediation: If deployment fails, rollback or trigger remediation.
 This ensures a controlled, automated path from code change to production.
 
-13. What is the difference between Continuous Delivery and Continuous Deployment?
+**13. What is the difference between Continuous Delivery and Continuous Deployment?
 
 Answer:
 
@@ -170,12 +164,12 @@ Continuous Delivery means that code changes are automatically built, tested, and
 Continuous Deployment takes this one step further — every change that passes all stages (build, test, etc) is automatically deployed into production without human intervention.
 Thus, Continuous Deployment is a more mature/automated state; with Continuous Delivery you still have manual gating or approval before production.
 
-14. Explain the concept of “immutable infrastructure”.
+**14. Explain the concept of “immutable infrastructure”.
 
 Answer:
 Immutable infrastructure is the paradigm where once an infrastructure component (server, container, instance) is deployed, it is never modified (not patched in place, not reconfigured manually). Instead, when updates are needed (patches, configuration changes), you build a new version of the infrastructure component and replace the old one. Benefits: consistency, fewer configuration drift issues, easier rollback (by reverting to the previous version), predictable behaviour. Drawbacks: may require more up-front investment in automation and orchestration; you need robust replacement/blue-green strategies.
 
-15. What is containerisation (e.g., Docker) and why is it useful?
+**15. What is containerisation (e.g., Docker) and why is it useful?
 
 Answer:
 Containerisation is the technique of packaging an application and all its dependencies (libraries, runtime, configuration) into a lightweight, portable unit (a container) that can run in any environment that supports the container runtime (e.g., Docker). It is useful because:
@@ -190,12 +184,12 @@ Facilitates scaling and orchestration via tools like Kubernetes.
 
 Reduces complexity of environment/cross-dependency issues.
 
-16. What is container orchestration (e.g., Kubernetes) and when would you use it?
+**16. What is container orchestration (e.g., Kubernetes) and when would you use it?
 
 Answer:
 Container orchestration is the management of container deployment, scaling, networking, load-balancing, service discovery, health-monitoring, and lifecycle across a cluster of machines. Kubernetes is a popular orchestration platform. You would use orchestration when you have multiple containers/services running (microservices architecture), need to scale dynamically, ensure high-availability, manage container health, roll-out/rollback updates, handle networking between services. Without orchestration, managing many containers manually becomes complex and error-prone.
 
-17. Describe a typical deployment process for a containerised application.
+**17. Describe a typical deployment process for a containerised application.
 
 Answer:
 Typical steps for deploying a containerised application:
@@ -222,7 +216,7 @@ On issues, rollback to previous image version.
 
 Document deployment runbooks; update monitoring dashboards.
 
-18. How do you handle configuration management across multiple environments (dev, staging, production)?
+**18. How do you handle configuration management across multiple environments (dev, staging, production)?
 
 Answer:
 Good practices for configuration management across environments:
@@ -243,12 +237,12 @@ Implement approval or gating mechanisms before promotions to production.
 
 Use secrets management for production credentials; audit access.
 
-19. Explain the principle of least privilege in system administration.
+**19. Explain the principle of least privilege in system administration.
 
 Answer:
 The principle of least privilege means giving users, systems, or services only the minimum permissions they need to perform their required tasks — no more. In system administration and DevOps, applying least privilege reduces risk by limiting the potential damage in case of compromise, accidental misuse or configuration errors. For example: an automation script deploying an application doesn’t need full root access on all servers; instead, it gets just enough privileges (e.g., write access to the service directory, ability to restart the service). Similarly, IAM roles in cloud infrastructure should restrict permissions and should be regularly reviewed and audited.
 
-20. What is SSH and how is it used in automation?
+**20. What is SSH and how is it used in automation?
 
 Answer:
 SSH (Secure Shell) is a network protocol that provides secure encrypted communication between two systems (client/server). It's commonly used to log into remote machines and execute commands. In automation:
@@ -262,7 +256,7 @@ It supports key-based authentication, which is important for automation (no manu
 SSH tunnels/port-forwarding are used for securely connecting to internal systems.
 Because automation involves remote servers, SSH is a foundational tool/method for securely executing tasks in infrastructure.
 
-21. When would you use agent-based vs agentless configuration management?
+**21. When would you use agent-based vs agentless configuration management?
 
 Answer:
 
@@ -271,7 +265,7 @@ Agent-based tools install a persistent software agent on each target machine (e.
 Agentless tools (e.g., Ansible over SSH) do not require an installed agent; they connect to target machines and execute commands/tasks. Use agentless if infrastructure is simpler, you prefer minimal footprint, or you have environments where installing agents is undesirable (e.g., restricted systems).
 In summary: Agentless often simpler and lighter; agent-based gives more features/control — choice depends on environment complexity, security policy, network restrictions.
 
-22. How do you monitor logs and metrics in production systems?
+**22. How do you monitor logs and metrics in production systems?
 
 Answer:
 Monitoring logs and metrics typically involves:
@@ -287,7 +281,7 @@ Ownership & dashboards: Ensure teams have dashboards summarising health, trends;
 Automation: Use automation to respond to certain alerts (auto-remediation), and use logs/metrics as feedback for tuning automation.
 This enables visibility, faster detection of issues, root-cause analysis.
 
-23. How would you troubleshoot a failure in an automated deployment?
+**23. How would you troubleshoot a failure in an automated deployment?
 
 Answer:
 Troubleshooting steps might include:
@@ -312,7 +306,7 @@ Apply fix and test: Once root cause is found, fix the automation (script, config
 
 Post-mortem: After resolution, document what happened, how it will be prevented in future (runbook update, alerting, improved test).
 
-24. Explain how you would roll back a failed release.
+**24. Explain how you would roll back a failed release.
 
 Answer:
 A rollback strategy might include:
@@ -333,7 +327,7 @@ Post-rollback verification: Confirm that the old version is healthy, metrics/log
 
 Update automation/process: After rollback, improve the pipeline to avoid repeat of same failure.
 
-25. What are the key networking concepts a DevOps engineer should know (e.g., TCP/UDP, load balancing, DNS)?
+**25. What are the key networking concepts a DevOps engineer should know (e.g., TCP/UDP, load balancing, DNS)?
 
 Answer:
 Key networking concepts include:
@@ -357,7 +351,7 @@ Service discovery: How services find each other in dynamic environments (via DNS
 High-availability networking: Multi-AZ, multi-region failover, DNS failover, load-balancer redundancy.
 Having a sound networking foundation helps a DevOps engineer design resilient, secure infrastructure and troubleshoot connectivity/performance issues.
 
-26. What is RESTful API and how is it relevant in automation tasks?
+**26. What is RESTful API and how is it relevant in automation tasks?
 
 Answer:
 A RESTful API (Representational State Transfer) is a style of web service interface that uses standard HTTP methods (GET, POST, PUT, DELETE) to operate on resources, often returns data in JSON or XML, and is stateless. In automation tasks:
@@ -371,7 +365,7 @@ Using REST APIs allows automation of tasks like “create server”, “deploy c
 Understanding API endpoints, authentication (tokens, OAuth), error handling makes automation robust.
 Thus, RESTful APIs are key for programmatic control of infrastructure, pipelines and services.
 
-27. How do you integrate APIs into automation workflows (e.g., retrieving data, triggering workflows)?
+**27. How do you integrate APIs into automation workflows (e.g., retrieving data, triggering workflows)?
 
 Answer:
 Steps for integrating APIs into automation workflows:
@@ -393,7 +387,7 @@ Logging & monitoring: Log API calls, responses, performance. Set alerts for fail
 Security & rate-limits: Respect rate limits, use retries/backoffs, secure secrets, rotate credentials.
 By integrating APIs you make automation dynamic, data-driven, and capable of interacting with multiple systems and services.
 
-28. Describe the difference between synchronous and asynchronous operations in automation.
+**28. Describe the difference between synchronous and asynchronous operations in automation.
 
 Answer:
 
@@ -402,7 +396,7 @@ Synchronous operations: The automation workflow waits for an operation to comple
 Asynchronous operations: The operation is initiated and the workflow doesn’t wait; it may continue to next tasks or monitor for completion via callback, polling, or event. Example: You trigger a large data move, immediately continue with other tasks, and later check for completion or get an event/notification.
 In automation: synchronous is simpler but can slow pipeline (waiting). Asynchronous is more scalable (you trigger many operations and proceed), but you must handle eventual consistency, monitoring for completion, error handling for delayed failures. Knowing when to use each is important for efficient workflows.
 
-29. How do you maintain documentation (architecture diagrams, runbooks, workflows)?
+**29. How do you maintain documentation (architecture diagrams, runbooks, workflows)?
 
 Answer:
 Maintaining documentation involves:
@@ -424,7 +418,7 @@ Review & audit: Periodically review documentation for relevance, completeness; r
 Link to automation code: For example, link a runbook to the script it refers to; include version numbers.
 Proper documentation ensures maintainability, better handover, faster incident resolution, and knowledge sharing.
 
-30. Why is documenting your automation scripts and workflows important?
+**30. Why is documenting your automation scripts and workflows important?
 
 Answer:
 Documenting scripts and workflows is important because:
@@ -443,7 +437,7 @@ Risk reduction: If someone leaves, changing the automation becomes harder withou
 
 Consistency: If workflows are documented, new scripts can follow standard conventions, versioning, naming, making the environment more consistent.
 
-What is the role of cross-functional collaboration in DevOps / automation?
+**31. What is the role of cross-functional collaboration in DevOps / automation?
 
 Cross-functional collaboration is central to DevOps because it breaks down traditional silos between development, operations, QA, security, and business teams. When different teams work together:
 
@@ -460,7 +454,7 @@ It fosters a culture of continuous improvement: teams can identify and eliminate
 According to WithCoherence, building shared processes (CI/CD), using shared tools, active communication, and mapping out work responsibilities helps teams avoid misalignment. 
 withcoherence.com
 
-Explain how you would gather requirements from a business or operations team for an automation solution.
+**32. Explain how you would gather requirements from a business or operations team for an automation solution.
 
 Here’s a structured approach:
 
@@ -488,7 +482,7 @@ Feedback & Iteration: Once the POC is done, demonstrate it, collect feedback, an
 
 Documentation & Training: Document the requirement decisions, runbooks, flows, and train the operations team / business team to use and maintain the automation.
 
-What is production support and how does it differ from development?
+**33. What is production support and how does it differ from development?
 
 Production Support refers to the ongoing operational support, monitoring, maintenance, and troubleshooting of live systems. The goal is to keep production stable, performant, and available.
 
@@ -506,7 +500,7 @@ SLA commitments: Support teams often operate under Service Level Agreements (SLA
 
 Collaboration: Support engineers must closely coordinate with operations, site reliability, business to communicate status, do root-cause analysis, and provide runbooks for future incidents.
 
-How have you handled “after-business hours” releases? What precautions do you take?
+**34. How have you handled “after-business hours” releases? What precautions do you take?
 
 Here are the best practices / precautions (and how I would / have implemented them):
 
@@ -528,7 +522,7 @@ Change Control: Use change management procedures (if applicable), ensure approva
 
 Post-deployment Review: After the release, run a post-mortem / review meeting: check what went well, what failed, what can be improved. Update runbooks accordingly.
 
-How do you ensure minimal downtime during a deployment?
+**35. How do you ensure minimal downtime during a deployment?
 
 A few strategies to minimize downtime:
 
@@ -551,20 +545,20 @@ Monitoring & Metrics: Monitor critical metrics (latency, error rate, throughput)
 
 Automated Rollback: In case of failure thresholds (error rate, health check failures), automate rollback to previous stable version.
 
-Explain blue/green and canary deployment strategies.
+**36. Explain blue/green and canary deployment strategies.
 
 Blue/Green Deployment: As mentioned, you have two identical environments: Blue (current production) and Green (new version). You deploy changes to the green environment, test it thoroughly, and then switch all traffic from blue to green. If anything goes wrong, you can switch back. Benefits include quick rollback, minimal disruption. 
 Wikipedia
 
 Canary Deployment: Here, you release the new version to a small subset of your infrastructure (or a subset of users) first (the canary), monitor performance and stability, and gradually increase the rollout if things look good. This minimizes risk by limiting exposure and giving you time to detect any problems in production.
 
-What is the difference between horizontal and vertical scaling?
+**37. What is the difference between horizontal and vertical scaling?
 
 Horizontal Scaling (scale out): Adding more machines/instances/containers to your system. E.g., adding more web server instances behind a load balancer. This improves capacity, fault tolerance, and redundancy.
 
 Vertical Scaling (scale up): Increasing the capacity of a single machine by adding more CPU, memory, or storage. This can improve performance for a single node but has limits (hardware limits) and may introduce a single point of failure.
 
-How would you tune performance of an automated workflow or infrastructure system?
+**38. How would you tune performance of an automated workflow or infrastructure system?
 
 Performance tuning involves:
 
@@ -588,7 +582,7 @@ Autoscaling / Dynamic Provisioning: Use autoscaling so infrastructure scales out
 
 Feedback Loop: Continuously monitor, tune, and re-evaluate after each change; build dashboards, set alerts for performance regressions.
 
-What is drift in infrastructure configuration and how do you detect / prevent it?
+**39. What is drift in infrastructure configuration and how do you detect / prevent it?
 
 Drift (configuration or infrastructure drift) is when the actual state of your infrastructure diverges from the desired state defined in your IaC (Infrastructure as Code) scripts. 
 Spacelift
@@ -622,7 +616,7 @@ Firefly
 Use policy-as-code to enforce guardrails (e.g., disallow non-codified changes). 
 DevOps.com
 
-How do you secure secrets (passwords, tokens, keys) in automation workflows?
+**40. How do you secure secrets (passwords, tokens, keys) in automation workflows?
 
 Use a secrets management system: HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, etc.
 
@@ -642,13 +636,13 @@ Explain the concept of “shift-left” in DevSecOps.
 
 “Shift-left” means integrating security (and testing) earlier in the software development lifecycle — essentially moving security practices (like vulnerability scanning, code analysis, compliance checks) to earlier phases (e.g., during code design, build, unit tests) rather than at the end (just before production). Benefits: you detect and fix security issues early (when they’re cheaper to fix), reduce risk, and embed security into CI/CD pipelines.
 
-What is the difference between Waterfall and Agile methodologies?
+**41. What is the difference between Waterfall and Agile methodologies?
 
 Waterfall: A linear, sequential development model. Phases like requirements → design → development → testing → deployment happen one after the other. Changes are harder to incorporate once a phase is completed.
 
 Agile: Iterative and incremental. Work is broken into sprints / iterations; frequent feedback, continuous planning, and adaptation. Teams deliver small chunks of functionality regularly and adjust based on stakeholder feedback or changing priorities.
 
-Have you worked in Agile teams? How does DevOps complement Agile?
+**42. Have you worked in Agile teams? How does DevOps complement Agile?
 
 Answer (example):
 Yes — I have worked in Agile teams where we followed 2-week sprints, planning, daily standups, sprint reviews, and retrospectives. DevOps complements Agile in many ways:
@@ -663,7 +657,7 @@ Quality & Stability: Automation ensures code quality, testing, and deployment pr
 
 Responsiveness: When agile backlogs change, automated pipelines let you adjust deployments quickly, without manual ops bottlenecks.
 
-How would you present risk or issue escalation to stakeholders?
+**43. How would you present risk or issue escalation to stakeholders?
 
 Identify Risks Early: Document potential risks (deployment failures, rollback, data loss, security) during planning.
 
@@ -684,7 +678,7 @@ Describe a time when you identified an improvement opportunity in automation / i
 Sample Answer (you can adapt):
 In my previous role, I noticed that our nightly patching process was manual: we SSHed into servers, installed updates, and verified services one by one. This was time-consuming and error-prone. I proposed and built an Ansible playbook that automated the patching: it connected to all servers, applied updates, restarted services, performed health checks, and sent a summary report. This reduced the time taken from ~3 hours to 45 minutes and nearly eliminated patch-related failures. After rollout, I documented the process in a runbook and handed it over to the operations team. I also set up a weekly schedule so the playbook runs automatically.
 
-What are KPIs or metrics you would track for an automated system?
+**44. What are KPIs or metrics you would track for an automated system?
 
 Some useful KPIs / metrics:
 
@@ -710,7 +704,7 @@ Security Metrics: Number of vulnerabilities found or remediated via automation, 
 
 On-call Metrics: Number of incidents / alerts in hour, frequency of manual overrides, time to respond.
 
-How do you ensure your automation solution is scalable and maintainable?
+**45. How do you ensure your automation solution is scalable and maintainable?
 
 Modularization: Write modular code / scripts: reusable functions, templates, roles (in Ansible), modules in Terraform.
 
@@ -752,7 +746,7 @@ When a new image is pushed to a Docker registry, a webhook triggers a CI/CD pipe
 
 Or: an AWS CloudWatch alarm for CPU usage > 80% triggers a Lambda function that automatically scales up (auto-provisions) another instance, updates load balancers, and registers the new instance, based on the event.
 
-How do you ensure high availability (HA) in infrastructure deployments?
+**46. How do you ensure high availability (HA) in infrastructure deployments?
 
 Redundancy: Deploy multiple instances of services / servers across different availability zones (AZ) or regions.
 
@@ -774,7 +768,7 @@ Immutable Infrastructure: Use immutable deployments so new versions replace old 
 
 Monitoring & Alerts: Monitor availability metrics, set alerts, have runbooks for failover and recovery.
 
-What is a load balancer and when is it used?
+**47. What is a load balancer and when is it used?
 
 A load balancer is a network component that distributes incoming traffic across multiple backend servers or instances to ensure no single server is overwhelmed, improving scalability, reliability, and availability.
 
@@ -790,7 +784,7 @@ To perform health checks and remove unhealthy nodes automatically.
 
 To manage traffic across different zones or regions, or to handle SSL termination, routing rules, etc.
 
-How would you manage versioning of infrastructure code?
+**48. How would you manage versioning of infrastructure code?
 
 Use Git (or any version control system) to track IaC (Terraform, CloudFormation, Ansible) as code.
 
@@ -808,7 +802,7 @@ Use branch promotions: once IaC changes are validated in dev / staging, merge in
 
 Use immutable modules: version your Terraform / Ansible modules so changes are tracked in module versions.
 
-How do you test infrastructure changes before applying them to production?
+**49. How do you test infrastructure changes before applying them to production?
 
 Terraform Plan / Preview: Use terraform plan (or equivalent in other IaC tools) to preview changes and see what will be created/modified/destroyed.
 
@@ -828,7 +822,7 @@ Peer Review: Use code review for IaC changes (pull requests) to catch risky or i
 
 Rollback Strategy: Always plan for rollback — have snapshots, backups or a previous version of infrastructure ready in case something goes wrong.
 
-Explain the concept of a “runbook”.
+**50. Explain the concept of a “runbook”.
 
 A runbook is a documented set of procedures or operations that outlines step-by-step instructions to handle routine or emergency tasks. It serves as a guidebook for operational teams (on-call, support, SRE) to respond to incidents, perform deployments, or conduct maintenance. A runbook typically includes:
 
@@ -846,7 +840,7 @@ Escalation path (who to contact, when).
 
 Concluding steps (clean-up, post-mortem, documentation).
 
-How do you design a runbook for an incident?
+**51. How do you design a runbook for an incident?
 
 Define the Incident Scenario: Clearly describe what kind of incident the runbook covers (e.g., “High CPU on web server”, “Database connection failure”, “Service crash”).
 
@@ -868,7 +862,7 @@ Safety Precautions: Warnings or caveats (e.g., “Don’t run this command on pr
 
 Review & Update: Include a periodic review schedule to keep the runbook current.
 
-What is rollback vs “hotfix”?
+**52. What is rollback vs “hotfix”?
 
 Rollback: Reverting to a previous stable version of your application or infrastructure. This is typically used when a deployment fails or introduces unacceptable issues.
 
@@ -896,7 +890,7 @@ Policy Update: Update security policy, documentation, and runbooks to prevent re
 
 Communicate: Inform stakeholders (security team, dev, operations) about the fix, steps taken, and new safeguards.
 
-What is container image registry and how do you manage it in CI/CD?
+**53. What is container image registry and how do you manage it in CI/CD?
 
 A container image registry is a storage and distribution system for container images (e.g., Docker Hub, Amazon ECR, Google Container Registry).
 
@@ -916,7 +910,7 @@ Secure registry: enforce access control, image signing, and vulnerability scanni
 
 Use immutable tags (avoid latest in production), so you can roll back to a known image.
 
-How do you handle dependency management in an infrastructure / automation context?
+**54. How do you handle dependency management in an infrastructure / automation context?
 
 IaC Modules / Packages: Use reusable modules (Terraform modules or Ansible roles) to encapsulate shared infra logic.
 
@@ -932,7 +926,7 @@ Isolation: Use containerised environments or virtual environments to isolate dep
 
 Auditing: Maintain visibility over what dependencies are used where (via dependency graphs or manifest files).
 
-When would you choose an imperative vs declarative approach in infrastructure configuration?
+**55. When would you choose an imperative vs declarative approach in infrastructure configuration?
 
 Imperative: You explicitly define how things should be done — the steps to reach the desired state. Use this when:
 
@@ -950,7 +944,7 @@ You want reproducibility, version-controlled infrastructure, and drift detection
 
 You want to maintain state, perform reconciliation, and have a source-of-truth code for resources.
 
-Explain service discovery and why it matters in distributed systems.
+**56. Explain service discovery and why it matters in distributed systems.
 
 Definition: Service discovery is the process by which services (microservices, APIs, etc.) in a distributed system dynamically locate and communicate with each other. Rather than hard-coding IP addresses or endpoints, services register themselves in a service registry, and other services query this registry to find available instances. 
 GeeksforGeeks
@@ -992,7 +986,7 @@ Tools / Patterns: Service registries like Consul, etcd, Zookeeper, or using buil
 Medium
 +1
 
-What is an orchestration tool vs a configuration management tool?
+**56. What is an orchestration tool vs a configuration management tool?
 
 Configuration Management (CM) tools: Focus on ensuring each machine or node is in a desired state. For example: which packages are installed, which services run, which config files are present. Tools: Ansible, Puppet, Chef. 
 PHP China
@@ -1000,7 +994,7 @@ PHP China
 Orchestration: Coordinates workflows across systems or services — managing dependencies, deployments, scaling, order of operations. It handles how and when things happen across many systems. 
 Wikipedia
 
-How they complement each other:
+**57. How they complement each other:
 
 Use orchestration to spin up or scale environments (e.g., create infrastructure, deploy services).
 
@@ -1009,7 +1003,7 @@ PHP China
 
 Example: Use Terraform or Kubernetes (orchestration) to deploy new instances, then Ansible (CM) to install software and configure these instances.
 
-How have you handled system updates or patching in an automated infrastructure?
+**58. How have you handled system updates or patching in an automated infrastructure?
 
 A typical / best-practice approach:
 
@@ -1037,7 +1031,7 @@ Documentation: Maintain runbooks for patching, including steps, alerts, and roll
 
 Audit & Reporting: Keep logs of patches applied, versions of patched systems, and provide reports.
 
-What is the importance of tagging/labeling resources (in cloud/on-prem) for cost / management / automation?
+**59. What is the importance of tagging/labeling resources (in cloud/on-prem) for cost / management / automation?
 
 Cost management: Tags (like env:prod, team:dev, project:XYZ) allow you to attribute cloud costs to teams, projects, or cost centers. This helps in cost allocation and chargebacks. 
 Aziro
@@ -1050,7 +1044,7 @@ Compliance & Governance: Tags can denote compliance, security zones, or lifecycl
 
 Monitoring & Reporting: Tagged resources can be aggregated in dashboards (by project, team, cost, environment), making reporting easier and more meaningful.
 
-How do you monitor and report on infrastructure cost / usage in automated systems?
+**60. How do you monitor and report on infrastructure cost / usage in automated systems?
 
 Cloud-native cost tools: Use cloud provider cost monitoring / billing dashboards (AWS Cost Explorer, Azure Cost Management, GCP Billing) to get visibility.
 
@@ -1066,7 +1060,7 @@ Optimization: Use automation for rightsizing (scale-down underutilized resources
 
 Dashboarding: Build dashboards (Grafana, cloud dashboards) to visualize cost vs usage, growth trends, projected usage.
 
-What happens when you hit API limits when automating with cloud provider SDKs?
+**61. What happens when you hit API limits when automating with cloud provider SDKs?
 
 Rate limiting: If you hit API rate limits, your automation calls may be throttled or rejected.
 
@@ -1100,7 +1094,7 @@ Alerting: Build alerts on logs (e.g., error rate spikes, specific error patterns
 
 Access Control: Secure logs so that sensitive information (PII, credentials) is not exposed; control who can view or query logs.
 
-How do you handle secrets rotation in an automated system?
+**62. How do you handle secrets rotation in an automated system?
 
 Secrets Manager: Use a centralized secrets store like HashiCorp Vault, AWS Secrets Manager, or Azure Key Vault.
 
@@ -1116,7 +1110,7 @@ Secure Injection: At runtime, inject secrets securely (e.g., via environment var
 
 Fallback / Rollback: Have a mechanism to roll back if a secrets change breaks something (e.g., pipeline fetches version, tests, then deploy).
 
-What is your approach to learning a new tool or technology for automation?
+**63. What is your approach to learning a new tool or technology for automation?
 
 Identify Use Case First: Understand why you need the tool: what problem does it solve, what benefit does it bring.
 
@@ -1137,7 +1131,7 @@ Document & Share: After learning, document how you used it (runbooks, patterns),
 Iterate: Based on the POC, refine your approach: add error handling, testing, security, etc.
 
 Automation Workflow / Infrastructure
-Describe an end-to-end automation workflow you designed (from code commit → build → test → deploy → monitor).
+**64. Describe an end-to-end automation workflow you designed (from code commit → build → test → deploy → monitor).
 
 Here’s a sample (you can adjust to your real project):
 
@@ -1161,7 +1155,7 @@ Runbook / Recovery: If there’s a failure, runbook steps are triggered — roll
 
 Feedback Loop: Use deployment metrics (failure rate, lead time) to improve pipeline, optimize tests, and refine process.
 
-How did you gather requirements for an automation project – what questions did you ask stakeholders?
+**65. How did you gather requirements for an automation project – what questions did you ask stakeholders?
 
 To gather requirements:
 
