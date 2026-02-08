@@ -2124,3 +2124,13 @@ How do you ensure cross-functional teams understand the automation workflows, de
 What are the challenges of combining Waterfall and Agile practices in a DevOps context, and how would you harmonise them?
 
 Imagine you inherited a legacy automation pipeline full of scripts, manual steps, no documentation – how would you approach cleaning it up/improving it systematically?
+
+How would you architect a fully available and fault tolerant Application in AWS?
+Why would you use EKS and not other Container service like ECS?
+Can you explain me where ECS is suitable instead of EKS?
+While creating subnet there is no option to create public/private subnet we need to do some configurations how would you make a subnet public/private?
+Internet gate way is attached to subnet or VPC?
+We have to connect multiple VPC's within the AWS how would you connect. How transit gateway is beneficial as compared to VPC Peering
+Why do you think VPC Peering is cheaper than Transit Gateway?
+Security best practices in each and every services of AWS.
+Pillars for designing architecture in AWS.
